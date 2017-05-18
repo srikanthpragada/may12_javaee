@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Introduction</title>
+<link rel="stylesheet" href="styles.css"/>
+<script>
+    function showFee()
+    {
+  	
+    	var fee = document.getElementById("fee");
+    	fee.innerHTML = "4000 INR";
+    }
+</script>
+</head>
+<body>
+	<h1>Introduction</h1>
+	This course teaches how to build web applications using Java EE.
+
+	<h2>Topics</h2>
+	The following are important topics.
+
+	<ul>
+		<li>JDBC</li>
+		<li>Servlets</li>
+		<li>Ajax</li>
+		<li>Web Services</li>
+	</ul>
+	
+	<button onclick="showFee()">Show Course Fee</button>
+	<h2 id="fee"></h2>
+</body>
+
+</html>
