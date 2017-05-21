@@ -4,20 +4,19 @@
   <welcome-file-list>
     <welcome-file>intr.html</welcome-file>
   </welcome-file-list>
-  
+  <session-config>
+    <session-timeout>5</session-timeout>
+  </session-config>
   <servlet>
     <servlet-name>Today</servlet-name>
-    <servlet-class>servlets.TodayServlet</servlet-class>  
+    <servlet-class>servlets.TodayServlet</servlet-class>
     <init-param>
       <param-name>title</param-name>
       <param-value>Abc Technologies</param-value>
     </init-param>
   </servlet>
-  
   <servlet-mapping>
-     <servlet-name>Today</servlet-name>
-     <url-pattern>/today</url-pattern>
+    <servlet-name>Today</servlet-name>
+    <url-pattern>/today</url-pattern>
   </servlet-mapping>
-  
-  
 </web-app>
