@@ -26,7 +26,7 @@
 		crs.setCommand("select * from employees where department_id = ?");
 		crs.setString(1, deptid);
 		crs.execute();
-		
+
 		// todo : stop here if crs contians no rows and display error message 
 	%>
     <p/>

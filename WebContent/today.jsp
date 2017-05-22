@@ -13,6 +13,17 @@
    <%    
         out.println(new java.util.Date().toString());
    %>
+   
+   ${requestScope.name}
+   
+   <%
+   String name =(String) request.getAttribute("name");
+   
+   %>
+   
+   <jsp:getProperty name="user" property="name" />
+   
+   
 
 </h2>
 
