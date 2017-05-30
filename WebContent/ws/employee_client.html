@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Client</title>
+<script>
+	var websocket;
+	var empid;
+	var details;
+
+	function connect() {
+		websocket = new WebSocket("ws://localhost:8888/webdemo/employee");
+		empid = document.getElementById("empid");
+		details = document.getElementById("details");
+		websocket.onmessage = processResult;
+	}
+
+	function processResult(evt) {
+		var emp = eval("(" + evt.data + ")");
+		if (emp.error)
+			details.innerHTML = "Error : " + emp.error;
+		else
+			details.innerHTML = "Name :" + emp.name + ", Salary : " 	+ emp.salary;
+
+		console.log(evt.data);
+	}
+
+	function getDetails() {
+		websocket.send(empid.value);
+	}
+</script>
+</head>
+<body onload="connect()">
+
+	<h2>Employee Details</h2>
+	<input type="text" placeholder="Employee Id" id="empid" />
+	<button onclick="getDetails()">Get Details</button>
+	<p></p>
+	<div id="details"></div>
+
+</body>
+</html>
