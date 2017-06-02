@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Rest Client</title>
+<script src="jquery/jquery-3.2.1.js""></script>
+<script>
+   function callHello()
+   {
+	   $.get("http://localhost:8888/webdemo/rest/hello",null,showResult);
+   }
+   function showResult(result) 
+   {
+	   $("#result").text(result);
+   }
+   
+   function sendData()
+   {
+	   $.post("http://localhost:8888/webdemo/rest/hello",
+			    {"title" : "Restful Services"}, showStatus);
+   }
+   
+   function showStatus(res)
+   {
+	   alert("Done");
+   }
+</script>
+</head>
+<body>
+<h2 id="result"></h2>
+<button onclick="callHello()">Call Hello </button>
+
+<button onclick="sendData()">Send Data</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

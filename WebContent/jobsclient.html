@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Rest Client</title>
+<script src="jquery/jquery-3.2.1.js""></script>
+<script>
+	function getAllJobs() {
+		$.getJSON("http://localhost:8888/webdemo/rest/jobs", {}, showJobs);
+	}
+
+	function showJobs(jobs) {
+		st = "";
+		$.each(jobs, function(idx, job) {
+			st = st + job.title + "<br/>";
+		})
+
+		$("#jobs").html(st);
+	}
+	function getJob() {
+		$.ajax({
+			"url" : "http://localhost:8888/webdemo/rest/jobs/"
+					+ $("#jobid").val(),
+			"type" : "get", // request type 
+			"dataType" : "json", // expect from server
+			"success" : showResult,
+			"error" : displayError
+		});
+	}
+
+	function displayError() {
+		$("#result").text("Job Not Found!");
+	}
+
+	function showResult(job) {
+		$("#result").text(job.title);
+	}
+</script>
+</head>
+<body>
+	<h2>Jobs Client</h2>
+	<input type="text" id="jobid" />
+	<button onclick="getJob()">Get</button>
+	<button onclick="getAllJobs()">Get All</button>
+
+	<h2 id="result"></h2>
+
+	<div id="jobs"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

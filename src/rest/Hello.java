@@ -13,9 +13,8 @@ public class Hello {
 	 }
 	 
 	 @POST
-	 public void postData() {
-		 System.out.println("Post request made");
+	 public void postData(String title) {
+		 System.out.println("Post request made with title " + title);
 	 }
-	 
-	 
+	
 }
