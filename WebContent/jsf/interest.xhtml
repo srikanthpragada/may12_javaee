@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>Interest Calculation</title>
+</head>
+<body>
+
+   <h:form>
+    Deposit Amount <br/>
+    <h:inputText value="#{interestBean.amount}"></h:inputText>
+    <p/>
+    Interest Rate <br/>
+    <h:inputText value="#{interestBean.rate}"></h:inputText>
+    <p/>
+    
+    <h:commandButton value="Calculate"  actionListener="#{interestBean.calculate}"  />
+    
+    <p/>
+    <h2><h:outputText rendered="#{interestBean.interest > 0}" 
+                      value="#{interestBean.interest}"></h:outputText> </h2>
+   </h:form>		
+  
+
+</body>
+</html>
