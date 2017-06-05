@@ -33,6 +33,7 @@ public class UserBean {
 		this.password = password;
 	}
 
+	@Size(min=4, max=8, message="Valid length is 4 to 8 chars")
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -42,6 +43,12 @@ public class UserBean {
 	}
 	
 	public String register() {
+		if (! password.equals(confirmPassword))
+		{
+			message = "Passwords do not match!";
+			return "register";
+		}
+		
 		System.out.println("register()");
 		return "login";
 	}
