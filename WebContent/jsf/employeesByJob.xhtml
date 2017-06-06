@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<style>
+</style>
+<title>Employees</title>
+</head>
+<body>
+	<f:view>
+		<f:metadata>
+			<f:viewParam name="jobid" value="#{payrollBean.jobid}"></f:viewParam>
+			<f:viewAction action="#{payrollBean.retrieveEmployees}"></f:viewAction>
+		</f:metadata>
+
+
+		<h:dataTable value="#{payrollBean.employees}" var="emp">
+			<h:column> #{emp.first_name}  </h:column>
+			<h:column> #{emp.salary} </h:column>
+		</h:dataTable>
+
+	</f:view>
+
+</body>
+</html>
