@@ -2,25 +2,27 @@
 <html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <head>
 <title>Interest Calculation</title>
+<h:head></h:head>
 </head>
 <body>
 
    <h:form>
     Deposit Amount <br/>
-    <h:inputText value="#{interestBean.amount}">
-        <f:validateDoubleRange  minimum="1000"></f:validateDoubleRange>
+    <h:inputText id="amount" value="#{interestBean.amount}">
     </h:inputText>
     <p/>
     Interest Rate <br/>
-    <h:inputText value="#{interestBean.rate}" 
-               valueChangeListener="#{interestBean.rateChanged}"></h:inputText>
+    <h:inputText id="rate" value="#{interestBean.rate}"></h:inputText>
     <p/>
     
-    <h:commandButton value="Calculate"  actionListener="#{interestBean.calculate}"  />
+    <h:commandButton value="Calculate"  actionListener="#{interestBean.calculate}">
+         <f:ajax  execute="amount rate" render="interest" ></f:ajax>
+    </h:commandButton>
     
     <p/>
-    <h2><h:outputText rendered="#{interestBean.interest > 0}" 
-                      value="#{interestBean.interest}"></h:outputText> </h2>
+    <h2><h:outputText 
+              id="interest" 
+              value="#{interestBean.interest}"></h:outputText> </h2>
    </h:form>		
   
 
